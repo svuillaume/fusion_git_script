@@ -26,8 +26,6 @@ curl -k -s -X GET -H 'Content-Type: application/json' -H "Authorization: Basic $
 #VERSION=$(curl -s -X GET -H 'Content-Type: application/json' -H "Authorization: Basic $FUSION_AUTH" "$SCHEMA://$FUSION_HOSTNAME/v1/clusters/$CLUSTER_ID/services/haproxy/configuration/version")
 #echo $VERSION
 
-
-
 md5_fusion=$(md5sum ~/tmp/fusion_script/config_cluster_running.cfg | awk '{print $1}')
 md5_git=$(md5sum ~/tmp/fusion_script/config_cluster_git.cfg | awk '{print $1}')
 
