@@ -31,11 +31,11 @@ md5_git=$(md5sum ~/tmp/fusion_script/config_cluster_git.cfg | awk '{print $1}')
 
 sleep 1
 
-if [ $md5_fusion -eq $md5_git] 
+if [ $md5_fusion -eq $md5_git ] 
 then
+     echo "You have got the lastest config stored in GitHub"
 
-       echo "You have got the lastest config stored in GitHub"
-       else
+else
        		cp ~/tmp/fusion_script/config_cluster_running.cfg ~/tmp/fusion_script/config_cluster_git.cfg
 		git commit -a -m "fusion cluster latest configuration"
 		git push origin main
