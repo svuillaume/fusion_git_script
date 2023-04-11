@@ -24,20 +24,21 @@ curl -k -s -X GET -H 'Content-Type: application/json' -H "Authorization: Basic $
 VERSION=$(curl -s -X GET -H 'Content-Type: application/json' -H "Authorization: Basic $FUSION_AUTH" "$SCHEMA://$FUSION_HOSTNAME/v1/clusters/$CLUSTER_ID/services/haproxy/configuration/version")
 echo $VERSION
 
-md5_fusion=$(md5sum config_cluster_running.cfg | awk '{print $1}')
-md5_git=$(md5sum config_cluster_git.cfg | awk '{print $1}')
-echo $md5_fusion
-echo $md5_git
 
-sleep 10
 
-if [ $md5_fusion -eq $md5_git ]
+md5_fusion=$(md5sum ~/tmp/fusion_script/config_cluster_running.cfg | awk '{print $1}')
+md5_git=$(md5sum ~/tmp/fusion_script/config_cluster_git.cfg | awk '{print $1}')
+
+sleep 1
+
+if [ $md5_fusion -eq $md5_git] 
 then
-        echo "Git is already update witht the lastest fusion cluster config"
-else
-        cp ~/tmp/fusion_script/config_cluster_running.cfg ~/tmp/fusion_script/config_cluster_git.cfg
-	git commit -a -m "fusion cluster latest configuration"
-	git push origin main
-fi
 
+       echo "You have got the lastest config stored in GitHub"
+       else
+       		cp ~/tmp/fusion_script/config_cluster_running.cfg ~/tmp/fusion_script/config_cluster_git.cfg
+		git commit -a -m "fusion cluster latest configuration"
+		git push origin main
+
+fi
 
