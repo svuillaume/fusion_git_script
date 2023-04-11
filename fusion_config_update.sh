@@ -29,7 +29,7 @@ md5_git=$(md5sum config_cluster_git.cfg | awk '{print $1}')
 echo $md5_fusion
 echo $md5_git
 
-sleep 1
+sleep 10
 
 if [ $md5_fusion -eq $md5_git ]
 then
