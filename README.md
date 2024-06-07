@@ -1,5 +1,7 @@
 # fusion_script
 
+#cluster_git.cfg is used as a test hapee.cfg file
+
 1-) chmod +x fusion_git.sh
     fusion_git.sh checks github api for repo content change
 
