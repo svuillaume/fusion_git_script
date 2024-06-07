@@ -3,8 +3,7 @@
 #cluster_git.cfg is used as a test hapee.cfg file
 
 In fusion_git.sh, Update local variable
-
- # Securely assign sensitive information (use environment variables for sensitive data if possible)
+ # update local variable 
     local token="${GITHUB_TOKEN:-ghp_xxxxxxxxx}"  # Replace with $GITHUB_TOKEN if using environment variables
     local api_endpoint="http://<fusion_fqdn>:4445"
     local api_user="${API_USER}"  # Replace with $API_USER if using environment variables
